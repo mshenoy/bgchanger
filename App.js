@@ -40,7 +40,6 @@ export default class App extends Component {
         <TouchableOpacity onPress={this.myButtonPressed}>
           <Text style={styles.text}>Change Background</Text>
         </TouchableOpacity>
-        <Text>{this.state.randomColor || ""}</Text>
       </View>
     );
   }
