@@ -11,7 +11,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      randomColor: null
+      randomColor: null,
+      randomColorSecondary: "#B83227"
     };
   }
 
@@ -29,7 +30,10 @@ export default class App extends Component {
 
   myButtonPressed = () => {
     //alert(this.getRandomColor());
-    this.setState({ randomColor: this.getRandomColor() });
+    this.setState({
+      randomColor: this.getRandomColor(),
+      randomColorSecondary: this.getRandomColor()
+    });
   };
 
   render() {
@@ -38,7 +42,14 @@ export default class App extends Component {
         style={[styles.container, { backgroundColor: this.state.randomColor }]}
       >
         <TouchableOpacity onPress={this.myButtonPressed}>
-          <Text style={styles.text}>Change Background</Text>
+          <Text
+            style={[
+              styles.text,
+              { backgroundColor: this.state.randomColorSecondary }
+            ]}
+          >
+            Change Background
+          </Text>
         </TouchableOpacity>
       </View>
     );
@@ -54,7 +65,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 30,
-    backgroundColor: "#AE1438",
+    backgroundColor: "#B83227",
     paddingVertical: 10,
     paddingHorizontal: 40,
     color: "#FFFFFF",
